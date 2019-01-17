@@ -22,6 +22,7 @@
 	$raw_data = file_get_contents("php://input");
 
 	function check_username($username){
+		global $conn;
 		$check_username = "SELECT COUNT(*) FROM Users WHERE username='$username'";
 		if ($query_result = $conn->query($check_username)) {
 			// var_dump($query_result->fetchColumn());
@@ -46,9 +47,9 @@
 			if($container = check_username($username)){
 				$hashed_upassword = $container['password'];
 				if($hashed_password == $hashed_upassword){
-					echo "login success";
+					echo (json_encode("right password"));
 				} else {
-					echo "wrong password";
+					echo (json_encode("wrong password"));
 				}
 			}
 		} else {
@@ -61,13 +62,13 @@
 					$fetch_prep->execute();
 
 					// echo (json_encode($fetch_prep->fetch(PDO::FETCH_ASSOC)));
-					echo "match"
+					echo (json_encode("match"));
 				} else {
-					echo "nomatch";
+					echo (json_encode("nomatch"));
 				}
 			}
 		}
 	} else {
-		echo "error";
+		echo (json_encode("error"));
 	}
 ?>

@@ -18,6 +18,13 @@
 	}
 
 	$postdata = file_get_contents("php://input");
+	$postdata = json_decode($postdata);
+	$username = $postdata->username;
+	$password = $postdata->password;
+	$arr = ["username" => $username, "password" => $password];
 
-	echo "success";
+	echo (json_encode($arr));
+
+
+	// echo "success";
 ?>
