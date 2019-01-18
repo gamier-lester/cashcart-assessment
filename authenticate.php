@@ -2,7 +2,10 @@
 	require_once './connect.php';
 
 	if(isset($_SERVER['HTTP_ORIGIN'])){
-		header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+		//header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+		//Allow access using wildcard
+		header('Access-Control-Allow-Origin: *');
+		header('Content-type: application/json');
 		header('Access-Control-Allow-Credentials: true');
 		header('Access-Control-Max-Age: 86400');
 	}
