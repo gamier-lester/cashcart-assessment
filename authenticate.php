@@ -59,7 +59,7 @@
 			if($container = check_username($username)){
 				echo (json_encode("match"));
 			} else {
-				echo (json_encode("nomatch"))
+				echo (json_encode("nomatch"));
 			}
 		}
 	} else {
