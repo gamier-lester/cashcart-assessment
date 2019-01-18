@@ -24,8 +24,6 @@
 
 	$raw_data = file_get_contents("php://input");
 
-	$insert_prep = $conn->prepare("INSERT INTO Users (username, password, firstName, lastName) VALUES ('$username', '$hashed_password', '$first_name', '$last_name')");
-
 	if(isset($raw_data)){
 		$jsondata = json_decode($raw_data);
 		$username = $jsondata->username;
@@ -34,7 +32,10 @@
 		$first_name = $jsondata->firstName;
 		$last_name = $jsondata->lastName;
 
-		if($insert_prep->execute()){
+		$sql = "INSERT INTO Users(username, password, firstName, lastName) VALUES (?,?,?,?)";
+		$insert_prep = $conn->prepare($sql);
+
+		if($insert_prep->execute([$username, $hashed_password, $first_name, $last_name])){
 			echo (json_encode("success"));
 		} else {
 			echo (json_encode("error"));
