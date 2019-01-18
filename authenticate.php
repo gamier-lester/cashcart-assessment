@@ -50,25 +50,16 @@
 			if($container = check_username($username)){
 				$hashed_upassword = $container['password'];
 				if($hashed_password == $hashed_upassword){
-					echo (json_encode("right password"));
+					echo (json_encode($container));
 				} else {
 					echo (json_encode("wrong password"));
 				}
 			}
 		} else {
-			$check_username = "SELECT COUNT(*) FROM Users WHERE username='$username'";
-			if ($query_result = $conn->query($check_username)) {
-				// var_dump($query_result->fetchColumn());
-				if($query_result->fetchColumn() > 0){
-					// echo "match";
-					$fetch_prep = $conn->prepare("SELECT * FROM Users WHERE username='$username'");
-					$fetch_prep->execute();
-
-					// echo (json_encode($fetch_prep->fetch(PDO::FETCH_ASSOC)));
-					echo (json_encode("match"));
-				} else {
-					echo (json_encode("nomatch"));
-				}
+			if($container = check_username($username)){
+				echo (json_encode("match"));
+			} else {
+				echo (json_encode("nomatch"))
 			}
 		}
 	} else {
