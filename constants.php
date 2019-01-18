@@ -5,8 +5,8 @@
 	// define("DBNAME", "assessment-db");
 	define("DBUSER", "juancho");
 	define("DBPASS", "foreverinlov3");
-	define("DBHOST", "todoapponetwo");
-	define("DBNAME", "db4free.net");
+	define("DBHOST", "db4free.net");
+	define("DBNAME", "todoapponetwo");
 	
 	if(isset($_SERVER['HTTP_ORIGIN'])){
 		header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
