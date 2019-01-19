@@ -4,7 +4,7 @@
 	// define("DBHOST", "localhost");
 	// define("DBNAME", "assessment-db");
 	define("DBUSER", "assessment_user");
-	define("DBPASS", "secretsecret");
+	define("DBPASS", "assessment_pass");
 	define("DBHOST", "db4free.net");
 	define("DBNAME", "assessment_db");
 	
