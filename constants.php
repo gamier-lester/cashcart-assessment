@@ -3,10 +3,10 @@
 	// define("DBPASS", "");
 	// define("DBHOST", "localhost");
 	// define("DBNAME", "assessment-db");
-	define("DBUSER", "juancho");
-	define("DBPASS", "foreverinlov3");
+	define("DBUSER", "assessment_user");
+	define("DBPASS", "secretsecret");
 	define("DBHOST", "db4free.net");
-	define("DBNAME", "todoapponetwo");
+	define("DBNAME", "assessment_db");
 	
 	if(isset($_SERVER['HTTP_ORIGIN'])){
 		header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
